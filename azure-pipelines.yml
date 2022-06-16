@@ -1,0 +1,12 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'containerregistry'
+    repository: 'dotnetapp'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
